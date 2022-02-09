@@ -2,6 +2,7 @@ package de.bht.jwtserver.service;
 
 import de.bht.jwtserver.model.JwtUser;
 import de.bht.jwtserver.repo.JwtUserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class JwtUserService implements UserDetailsService {
 
     @Autowired
     JwtUserRepository jwtUserRepository;
@@ -25,4 +27,5 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         return new User(jwtUser.getEmail(), jwtUser.getPassword(), new ArrayList<>());
     }
+    
 }

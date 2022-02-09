@@ -1,6 +1,6 @@
 package de.bht.jwtserver;
 
-import de.bht.jwtserver.service.CustomUserDetailsService;
+import de.bht.jwtserver.service.JwtUserService;
 import de.bht.jwtserver.filters.JwtRequestFilter;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +12,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 
 @EnableWebSecurity
 public class SecurityConfigurer  extends WebSecurityConfigurerAdapter {
     @Autowired
-    private CustomUserDetailsService customUserDetailsService;
+    private JwtUserService customUserDetailsService;
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
@@ -34,7 +34,7 @@ public class SecurityConfigurer  extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity security) throws Exception {
         security.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate", "/signin", "/signup").permitAll()
+                .antMatchers("/signin", "/signup", "/highscore").permitAll()
                 .anyRequest().authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         security.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }

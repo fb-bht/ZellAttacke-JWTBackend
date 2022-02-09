@@ -2,6 +2,7 @@ package de.bht.jwtserver.dto;
 
 import javax.validation.constraints.NotBlank;
 
+
 public class LoginRequest {
     @NotBlank
     private String usernameOrEmail;
@@ -24,4 +25,5 @@ public class LoginRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+    
 }

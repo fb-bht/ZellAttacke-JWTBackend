@@ -1,6 +1,8 @@
 package de.bht.jwtserver.dto;
 
+
 public class ApiResponse {
+
     private Boolean success;
     private String message;
 
@@ -24,4 +26,5 @@ public class ApiResponse {
     public void setMessage(String message) {
         this.message = message;
     }
+    
 }

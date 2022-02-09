@@ -11,7 +11,7 @@ public class SignUpRequest {
     private String email;
 
     @NotBlank
-    @Size(min = 3, max = 20)
+    @Size(min = 5, max = 20)
     private String password;
 
 
@@ -30,4 +30,5 @@ public class SignUpRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+    
 }

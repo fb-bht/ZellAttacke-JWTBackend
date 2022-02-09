@@ -1,7 +1,7 @@
 package de.bht.jwtserver.filters;
 
 import de.bht.jwtserver.util.JwtUtil;
-import de.bht.jwtserver.service.CustomUserDetailsService;
+import de.bht.jwtserver.service.JwtUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
@@ -24,7 +25,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     JwtUtil jwtUtil;
 
     @Autowired
-    CustomUserDetailsService userDetailsService;
+    JwtUserService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -47,4 +48,5 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
+    
 }

@@ -1,5 +1,6 @@
 package de.bht.jwtserver.dto;
 
+
 public class AuthenticationResponse {
 
     private String jwt;
@@ -15,4 +16,5 @@ public class AuthenticationResponse {
     public AuthenticationResponse(String jwt) {
         this.jwt = jwt;
     }
+    
 }
