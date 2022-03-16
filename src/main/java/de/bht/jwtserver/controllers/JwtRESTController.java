@@ -53,12 +53,20 @@ public class JwtRESTController {
     JwtScoreRepository scoreRepository;
 
 
+    
+    /** 
+     * @return String
+     */
     @GetMapping("/hello")
     public String hello() {
         // For testing: text is send back if authenticated else 403 Forbidden error
         return  "Hello if you are authorized!";
     }
 
+    
+    /** 
+     * @return ResponseEntity<?>
+     */
     @GetMapping("/user")
     public ResponseEntity<?> getUser() {
         // authenticate the received jwt token and find corresponding user
@@ -68,6 +76,11 @@ public class JwtRESTController {
         return ResponseEntity.ok(new UserResponse(jwtUser));
     }
 
+    
+    /** 
+     * @param addScoreRequest
+     * @return ResponseEntity<?>
+     */
     @PostMapping("/score")
     public ResponseEntity<?> addScore(@RequestBody AddScoreRequest addScoreRequest) {
         // authenticate the received jwt token and find corresponding user
@@ -79,6 +92,11 @@ public class JwtRESTController {
         return ResponseEntity.ok(new ApiResponse(true, "score saved successfully"));
     }
 
+    
+    /** 
+     * @param loginRequest
+     * @return ResponseEntity<?>
+     */
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         // authenticate received user credetials 
@@ -95,6 +113,11 @@ public class JwtRESTController {
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 
+    
+    /** 
+     * @param signUpRequest
+     * @return ResponseEntity<?>
+     */
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         // check if the received email already exists
@@ -110,6 +133,10 @@ public class JwtRESTController {
         return ResponseEntity.ok(new ApiResponse(true, "User registered successfully"));
     }
 
+    
+    /** 
+     * @return ResponseEntity<?>
+     */
     @GetMapping("/highscore")
     public ResponseEntity<?> getHighscore() {
         // find highest score

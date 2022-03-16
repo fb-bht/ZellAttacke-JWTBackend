@@ -31,38 +31,74 @@ public class JwtUser {
     private List<JwtScore> scores;
 
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getId() {
         return id;
     }
     
+    
+    /** 
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return List<JwtScore>
+     */
     public List<JwtScore> getScores() {
         return scores;
     }
 
+    
+    /** 
+     * @param score
+     */
     public void setScores(List<JwtScore> score) {
         this.scores = score;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    
+    /** 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getPassword() {
         return password;
     }
 
+    
+    /** 
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    
+    /** 
+     * @param newScore
+     */
     public void add(JwtScore newScore) {
         if (this.scores == null) {
             this.scores = new ArrayList<JwtScore>();
@@ -71,14 +107,27 @@ public class JwtUser {
         }
     }
 
+    /**
+     * Constructor
+     * 
+     * @param email
+     * @param password
+     */
     public JwtUser( String email, String password) {
         this.email = email;
         this.password = password;
     }
 
+    /**
+     * Constructor
+     */
     public JwtUser() {
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + "]";

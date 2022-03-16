@@ -16,6 +16,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JwtServerApplication {
 
+	
+	/**
+	 * starting point for the application
+	 *  
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(JwtServerApplication.class, args);
 	}

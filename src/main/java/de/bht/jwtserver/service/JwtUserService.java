@@ -19,6 +19,12 @@ public class JwtUserService implements UserDetailsService {
     @Autowired
     JwtUserRepository jwtUserRepository;
 
+    
+    /** 
+     * @param email
+     * @return UserDetails
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         JwtUser jwtUser = jwtUserRepository.findUserByEmail(email);

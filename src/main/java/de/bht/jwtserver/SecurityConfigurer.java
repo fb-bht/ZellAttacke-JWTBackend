@@ -24,12 +24,22 @@ public class SecurityConfigurer  extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+    
+    /** 
+     * @param auth
+     * @throws Exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         super.configure(auth);
         auth.userDetailsService(customUserDetailsService);
     }
 
+    
+    /** 
+     * @param security
+     * @throws Exception
+     */
     @Override
     public void configure(HttpSecurity security) throws Exception {
         security.csrf().disable()
@@ -39,11 +49,20 @@ public class SecurityConfigurer  extends WebSecurityConfigurerAdapter {
         security.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
+    
+    /** 
+     * @return PasswordEncoder
+     */
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    
+    /** 
+     * @return AuthenticationManager
+     * @throws Exception
+     */
     @Override
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
