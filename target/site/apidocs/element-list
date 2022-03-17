@@ -1,0 +1,8 @@
+de.bht.jwtserver
+de.bht.jwtserver.controllers
+de.bht.jwtserver.dto
+de.bht.jwtserver.filters
+de.bht.jwtserver.model
+de.bht.jwtserver.repo
+de.bht.jwtserver.service
+de.bht.jwtserver.util

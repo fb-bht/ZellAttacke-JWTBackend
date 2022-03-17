@@ -1,8 +1,5 @@
-### Java Doc ###
-!target/site/apidocs/*
-
 HELP.md
-target/
+# target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -35,3 +32,9 @@ build/
 ### VS Code ###
 .vscode/
 
+### Java Doc ###
+### show only /site/apidocs
+target/classes/
+target/javadoc-bundle-options/
+target/test-classes/
+maven-javadoc-plugin-stale-data.txt
