@@ -1,3 +1,6 @@
+### Java Doc ###
+!target/site/apidocs/*
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -32,5 +35,3 @@ build/
 ### VS Code ###
 .vscode/
 
-### Java Doc ###
-!target/site/apidocs/*
